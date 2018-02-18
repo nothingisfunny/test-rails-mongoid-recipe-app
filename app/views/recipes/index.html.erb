@@ -1,3 +1,15 @@
+
+<%= link_to new_recipe_path do %>
+<button>Add New</button>
+<% end %>
 <% @recipes.each do |recipe| %>
- <p><%= recipe.name %></p>
+ <h2><%= recipe.name %></h2>
+ <p><%= recipe.description %></p>
+ <p>Ingredients:</p>
+ <ul>
+ <% recipe.ingredient_list_items.each do |item| %>
+  <li><%=item.name %> - <%=item.quantity%> <%=item.unit%></li>
+<% end %>
+</ul>
+
 <% end %>

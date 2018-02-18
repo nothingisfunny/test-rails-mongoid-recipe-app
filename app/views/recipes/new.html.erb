@@ -1,0 +1,21 @@
+<%= form_for @recipe do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <p>Add your ingredients below </p>
+  <ul id="ingredientList">
+    <li>
+  <%= f.fields_for :ingredient_list_items do |item|%>
+    <%= item.label :name %>
+    <%= item.text_field :name %>
+    <%= item.label :quantity %>
+    <%= item.text_field :quantity %>
+    <%= item.label :unit %>
+    <%= item.text_field :unit %>
+  </li>
+  </ul>
+  <% end %>
+   <%= submit_tag "Add ingredient", type: "button", id: "addIngredient", :onclick => 'addIngredientField()'%>
+  <%= f.submit %>
+<% end %>
